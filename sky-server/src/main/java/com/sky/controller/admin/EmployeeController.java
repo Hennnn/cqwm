@@ -51,14 +51,14 @@ public class EmployeeController {
                 jwtProperties.getAdminTtl(),
                 claims);
 
-        EmployeeLoginVO employeeLoginVO = EmployeeLoginVO.builder()
+        EmployeeLoginVO employeeLoginVO = EmployeeLoginVO.builder()    //封装一下令牌以便发给前端 传统方法是直接new个类，这个可以研究研究
                 .id(employee.getId())
                 .userName(employee.getUsername())
                 .name(employee.getName())
                 .token(token)
                 .build();
 
-        return Result.success(employeeLoginVO);
+        return Result.success(employeeLoginVO);  //再封装，统一为result（前端）？
     }
 
     /**
